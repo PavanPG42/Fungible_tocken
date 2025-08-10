@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCoin Token System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-coins"></i>
+                <h1>EduCoin System</h1>
+            </div>
+            <div class="user-info" id="userInfo">
+                <span id="currentUser">Not logged in</span>
+                <button id="logoutBtn" class="btn btn-secondary" style="display: none;">Logout</button>
+            </div>
+        </header>
+
+        <!-- Login Section -->
+        <div id="loginSection" class="section">
+            <div class="card">
+                <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+                <div class="form-group">
+                    <label for="userIdInput">User ID:</label>
+                    <input type="text" id="userIdInput" placeholder="Enter your User ID">
+                </div>
+                <button id="loginBtn" class="btn btn-primary">Login</button>
+                <div class="help-text">
+                    <p><strong>Demo Users:</strong></p>
+                    <p>• Creator: <code>admin</code></p>
+                    <p>• User 1: <code>user1</code></p>
+                    <p>• User 2: <code>user2</code></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard -->
+        <div id="dashboard" class="section" style="display: none;">
+            <!-- Token Info -->
+            <div class="card">
+                <h2><i class="fas fa-info-circle"></i> Token Information</h2>
+                <div class="token-stats">
+                    <div class="stat">
+                        <span class="stat-label">Token Name:</span>
+                        <span class="stat-value" id="tokenName">EduCoin</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Symbol:</span>
+                        <span class="stat-value" id="tokenSymbol">EDU</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Total Supply:</span>
+                        <span class="stat-value" id="totalSupply">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Total Holders:</span>
+                        <span class="stat-value" id="totalHolders">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Balance -->
+            <div class="card">
+                <h2><i class="fas fa-wallet"></i> Your Balance</h2>
+                <div class="balance-display">
+                    <span class="balance-amount" id="userBalance">0</span>
+                    <span class="balance-symbol">EDU</span>
+                </div>
+            </div>
+
+            <!-- Balance Checker -->
+            <div class="card">
+                <h2><i class="fas fa-search"></i> Check Any User's Balance</h2>
+                <div class="form-group">
+                    <label for="checkBalanceInput">User ID:</label>
+                    <input type="text" id="checkBalanceInput" placeholder="Enter User ID to check">
+                </div>
+                <button id="checkBalanceBtn" class="btn btn-secondary">Check Balance</button>
+                <div id="balanceResult" class="result-message"></div>
+            </div>
+
+            <!-- Transfer Tokens -->
+            <div class="card">
+                <h2><i class="fas fa-paper-plane"></i> Transfer Tokens</h2>
+                <div class="form-group">
+                    <label for="transferToInput">Recipient User ID:</label>
+                    <input type="text" id="transferToInput" placeholder="Enter recipient's User ID">
+                </div>
+                <div class="form-group">
+                    <label for="transferAmountInput">Amount:</label>
+                    <input type="number" id="transferAmountInput" placeholder="Enter amount to transfer" min="1">
+                </div>
+                <button id="transferBtn" class="btn btn-primary">Send Tokens</button>
+                <div id="transferResult" class="result-message"></div>
+            </div>
+
+            <!-- Mint Tokens (Admin Only) -->
+            <div id="mintSection" class="card" style="display: none;">
+                <h2><i class="fas fa-plus-circle"></i> Mint Tokens (Admin Only)</h2>
+                <div class="form-group">
+                    <label for="mintToInput">Recipient User ID:</label>
+                    <input type="text" id="mintToInput" placeholder="Enter recipient's User ID">
+                </div>
+                <div class="form-group">
+                    <label for="mintAmountInput">Amount to Mint:</label>
+                    <input type="number" id="mintAmountInput" placeholder="Enter amount to mint" min="1">
+                </div>
+                <button id="mintBtn" class="btn btn-success">Mint Tokens</button>
+                <div id="mintResult" class="result-message"></div>
+            </div>
+
+            <!-- Token Explorer -->
+            <div class="card">
+                <h2><i class="fas fa-users"></i> Token Explorer</h2>
+                <div id="explorerTable">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User ID</th>
+                                <th>Balance</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody id="explorerBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Transaction History -->
+            <div class="card">
+                <h2><i class="fas fa-history"></i> Recent Transactions</h2>
+                <div id="transactionHistory">
+                    <div class="no-transactions">No transactions yet</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Messages -->
+        <div id="messageContainer"></div>
+    </div>
+
+    <script src="token.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
