@@ -162,8 +162,8 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 👨‍💻 Author
 
-**Harshath KS**
-- GitHub: [@HarshathKS](https://github.com/HarshathKS)
+**PavanPG42**
+- GitHub: [@HarshathKS](https://github.com/PavanPG42/Fungible_tocken)
 
 ---
 
